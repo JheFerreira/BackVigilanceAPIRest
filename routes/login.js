@@ -1,0 +1,12 @@
+let express = require('express');
+let router = express.Router();
+let controller = require('../controllers/login');
+let auth = require('../lib/auth');
+
+
+
+router.post('/login', controller.login);
+router.post('/logout', auth.jwtVerify, controller.logout);
+
+
+module.exports = router;
